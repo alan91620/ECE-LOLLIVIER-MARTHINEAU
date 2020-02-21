@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ECE_LOLLIVIER_MARTHINEAU
+namespace ECE.AA.MyAirport.App
 {
     class Program
     {
