@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace ECE.AA.MyAirport.EF
 {
     public class Vol
     {
+        [Key]
         public int ID_VOL { get; set; }
         public int CIE { get; set; }
         public string LIG { get; set; }
