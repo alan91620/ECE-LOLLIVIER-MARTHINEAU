@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECE.AA.MyAirport.EF.Migrations
 {
     [DbContext(typeof(AirportContext))]
-    [Migration("20200221160220_Initial")]
-    partial class Initial
+    [Migration("20200224131019_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,7 +44,7 @@ namespace ECE.AA.MyAirport.EF.Migrations
                     b.Property<string>("ESCALE")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ID_VOL")
+                    b.Property<int?>("ID_VOL")
                         .HasColumnType("int");
 
                     b.Property<byte>("PRIORITAIRE")
@@ -71,8 +71,8 @@ namespace ECE.AA.MyAirport.EF.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CIE")
-                        .HasColumnType("int");
+                    b.Property<string>("CIE")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DES")
                         .HasColumnType("nvarchar(max)");
@@ -82,9 +82,6 @@ namespace ECE.AA.MyAirport.EF.Migrations
 
                     b.Property<string>("IMM")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("JEX")
-                        .HasColumnType("int");
 
                     b.Property<string>("LIG")
                         .HasColumnType("nvarchar(max)");
@@ -104,9 +101,7 @@ namespace ECE.AA.MyAirport.EF.Migrations
                 {
                     b.HasOne("ECE.AA.MyAirport.EF.Vol", "Vol")
                         .WithMany()
-                        .HasForeignKey("ID_VOL")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ID_VOL");
                 });
 #pragma warning restore 612, 618
         }

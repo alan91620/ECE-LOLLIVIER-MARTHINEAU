@@ -13,9 +13,8 @@ namespace ECE.AA.MyAirport.App
 
                 //CREATE
                 var vol = new Vol { 
-                    CIE = 1,
-                    LIG = "AZERTY",
-                    JEX = 1
+                    CIE = "test",
+                    LIG = "AZERTY"
                 };
                 db.Vols.Add(vol);
                 db.SaveChanges();

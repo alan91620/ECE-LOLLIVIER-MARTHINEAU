@@ -6,22 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200221150736_InitialCreate.cs" />
-    <Compile Remove="Migrations\20200221150736_InitialCreate.Designer.cs" />
-    <Compile Remove="Migrations\20200221150849_InitialCreate.cs" />
-    <Compile Remove="Migrations\20200221150849_InitialCreate.Designer.cs" />
-    <Compile Remove="Migrations\20200221152446_InitialCreate.cs" />
-    <Compile Remove="Migrations\20200221152446_InitialCreate.Designer.cs" />
-    <Compile Remove="Migrations\20200221152635_InitialCreate.cs" />
-    <Compile Remove="Migrations\20200221152635_InitialCreate.Designer.cs" />
-    <Compile Remove="Migrations\20200221154338_Initial.cs" />
-    <Compile Remove="Migrations\20200221154338_Initial.Designer.cs" />
-    <Compile Remove="Migrations\20200221155201_Initial.cs" />
-    <Compile Remove="Migrations\20200221155201_Initial.Designer.cs" />
-    <Compile Remove="Migrations\20200221155747_Initial.cs" />
-    <Compile Remove="Migrations\20200221155747_Initial.Designer.cs" />
-    <Compile Remove="Migrations\20200221160037_Initial.cs" />
-    <Compile Remove="Migrations\20200221160037_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200224130403_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200224130403_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200224130429_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200224130429_InitialCreate.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

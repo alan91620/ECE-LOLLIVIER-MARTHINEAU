@@ -11,7 +11,7 @@ namespace ECE.AA.MyAirport.EF
         [Key]
         public int ID_BAGAGE { get; set; }
         [ForeignKey("Vol")]
-        public int ID_VOL { get; set; }
+        public int? ID_VOL { get; set; }
         public Vol Vol { get; set; }
         public string CODE_IATA { get; set; }
         public DateTime DATE_CREATION { get; set; }

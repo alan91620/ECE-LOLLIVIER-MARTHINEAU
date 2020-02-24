@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ECE.AA.MyAirport.EF.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,9 +13,8 @@ namespace ECE.AA.MyAirport.EF.Migrations
                 {
                     ID_VOL = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CIE = table.Column<int>(nullable: false),
+                    CIE = table.Column<string>(nullable: true),
                     LIG = table.Column<string>(nullable: true),
-                    JEX = table.Column<int>(nullable: false),
                     DHC = table.Column<DateTime>(nullable: false),
                     PKG = table.Column<string>(nullable: true),
                     IMM = table.Column<string>(nullable: true),
@@ -33,7 +32,7 @@ namespace ECE.AA.MyAirport.EF.Migrations
                 {
                     ID_BAGAGE = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ID_VOL = table.Column<int>(nullable: false),
+                    ID_VOL = table.Column<int>(nullable: true),
                     CODE_IATA = table.Column<string>(nullable: true),
                     DATE_CREATION = table.Column<DateTime>(nullable: false),
                     CLASSE = table.Column<string>(nullable: false),
@@ -51,7 +50,7 @@ namespace ECE.AA.MyAirport.EF.Migrations
                         column: x => x.ID_VOL,
                         principalTable: "Vols",
                         principalColumn: "ID_VOL",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
