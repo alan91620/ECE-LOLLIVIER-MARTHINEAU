@@ -1,14 +1,27 @@
 ﻿using ECE.AA.MyAirport.EF;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
+using System.Configuration;
 using System.Linq;
 
 namespace ECE.AA.MyAirport.App
 {
     class Program
     {
+
+        public static readonly ILoggerFactory MyLoggerFactory
+    = LoggerFactory.Create(builder => { builder.AddConsole(); });
         static void Main(string[] args)
         {
-            using (var db = new AirportContext())
+
+
+
+            var optionsBuilder = new DbContextOptionsBuilder<AirportContext>();
+            optionsBuilder.UseLoggerFactory(MyLoggerFactory);
+            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["AirportDB"].ConnectionString);
+
+            using (var db = new AirportContext(optionsBuilder.Options))
             {
 
                 //CREATE
