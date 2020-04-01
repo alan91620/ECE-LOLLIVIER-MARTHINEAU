@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 
@@ -32,12 +33,26 @@ namespace ECE.AA.MyAirport.App
                 db.Vols.Add(vol);
                 db.SaveChanges();
 
+                // Read
+                var vol1 = db.Vols
+                    .First();
+
                 var baggage = new Bagage
                 {
-                    ID_VOL = 1,
-                    CODE_IATA = "AZERTY"
+                    ID_VOL = vol1.ID_VOL,
+                    CODE_IATA = "AZERTY",
+                    DATE_CREATION = new DateTime(2012, 12, 25, 10, 30, 50)
                 };
                 db.Bagages.Add(baggage);
+                db.SaveChanges();
+
+                var baggage2 = new Bagage
+                {
+                    ID_VOL = vol1.ID_VOL,
+                    CODE_IATA = "AERAZ",
+                    DATE_CREATION = new DateTime(2012, 12, 25, 10, 30, 50)
+                };
+                db.Bagages.Add(baggage2);
                 db.SaveChanges();
 
                 // Read
@@ -51,7 +66,20 @@ namespace ECE.AA.MyAirport.App
 
                 // Delete
                 db.Remove(bag);
+
+
+                // Read
+                var voll = db.Vols
+                    .First();
+
+                Console.WriteLine("---------------");
+                Console.WriteLine(voll.Bagages.Count);
+
+
+
                 db.SaveChanges();
+
+
 
 
 

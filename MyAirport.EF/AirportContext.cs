@@ -21,8 +21,8 @@ namespace ECE.AA.MyAirport.EF
     = LoggerFactory.Create(builder => { builder.AddConsole(); });
     */
 
-        public DbSet<Vol> Vols { get; set; }
-        public DbSet<Bagage> Bagages { get; set; }
+        public DbSet<Vol>? Vols { get; set; } = null!;
+        public DbSet<Bagage>? Bagages { get; set; } = null;
 
         /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {*/

@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECE.AA.MyAirport.EF.Migrations
 {
     [DbContext(typeof(AirportContext))]
-    [Migration("20200224131019_InitialCreate")]
+    [Migration("20200401084713_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.2")
+                .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -29,7 +29,6 @@ namespace ECE.AA.MyAirport.EF.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CLASSE")
-                        .IsRequired()
                         .HasColumnType("nvarchar(1)");
 
                     b.Property<string>("CODE_IATA")
@@ -47,14 +46,13 @@ namespace ECE.AA.MyAirport.EF.Migrations
                     b.Property<int?>("ID_VOL")
                         .HasColumnType("int");
 
-                    b.Property<byte>("PRIORITAIRE")
+                    b.Property<byte?>("PRIORITAIRE")
                         .HasColumnType("tinyint");
 
                     b.Property<string>("SSUR")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("STA")
-                        .IsRequired()
                         .HasColumnType("nvarchar(1)");
 
                     b.HasKey("ID_BAGAGE");
@@ -72,21 +70,23 @@ namespace ECE.AA.MyAirport.EF.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CIE")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DES")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DHC")
+                    b.Property<DateTime?>("DHC")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("IMM")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LIG")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PAX")
+                    b.Property<int?>("PAX")
                         .HasColumnType("int");
 
                     b.Property<string>("PKG")
@@ -100,7 +100,7 @@ namespace ECE.AA.MyAirport.EF.Migrations
             modelBuilder.Entity("ECE.AA.MyAirport.EF.Bagage", b =>
                 {
                     b.HasOne("ECE.AA.MyAirport.EF.Vol", "Vol")
-                        .WithMany()
+                        .WithMany("Bagages")
                         .HasForeignKey("ID_VOL");
                 });
 #pragma warning restore 612, 618
