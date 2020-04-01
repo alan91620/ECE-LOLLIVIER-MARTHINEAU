@@ -11,6 +11,7 @@ namespace MyAirportWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class VolsController : ControllerBase
     {
         private readonly AirportContext _context;
@@ -29,16 +30,25 @@ namespace MyAirportWebApi.Controllers
 
         // GET: api/Vols/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Vol>> GetVol(int id)
+        public async Task<ActionResult<Vol>> GetVol(int id, [FromQuery] bool bagages = false)
         {
             var vol = await _context.Vols.FindAsync(id);
+            Vol volsRes;
 
-            if (vol == null)
+            if (bagages == true)
+            {
+                volsRes = await _context.Vols.Include(v => v.Bagages).Where(v => v.ID_VOL == id).FirstAsync();
+            }
+            else
+            {
+                volsRes = await _context.Vols.FindAsync(id);
+            }
+
+            if (volsRes == null)
             {
                 return NotFound();
             }
-
-            return vol;
+            return volsRes;
         }
 
         // PUT: api/Vols/5
