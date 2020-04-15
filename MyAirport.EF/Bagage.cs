@@ -22,6 +22,8 @@ namespace ECE.AA.MyAirport.EF
         public string? SSUR { get; set; }
         public string? DESTINATION { get; set; }
         public string? ESCALE { get; set; }
-      
+
+        public Bagage() { }
+
     }
 }

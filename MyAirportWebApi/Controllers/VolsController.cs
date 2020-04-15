@@ -27,7 +27,13 @@ namespace MyAirportWebApi.Controllers
         {
             return await _context.Vols.ToListAsync();
         }
-
+        /// <summary>
+        /// L'option bagages permet d'indiquer si l'on veut retourner la liste des
+        /// bagages associés au vol
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="bagages"></param>
+        /// <returns></returns>
         // GET: api/Vols/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Vol>> GetVol(int id, [FromQuery] bool bagages = false)
@@ -48,6 +54,7 @@ namespace MyAirportWebApi.Controllers
             {
                 return NotFound();
             }
+
             return volsRes;
         }
 

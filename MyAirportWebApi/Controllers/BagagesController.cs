@@ -20,6 +20,10 @@ namespace MyAirportWebApi.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Liste les bagages
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Bagages
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Bagage>>> GetBagages()

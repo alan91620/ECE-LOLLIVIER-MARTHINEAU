@@ -17,5 +17,7 @@ namespace ECE.AA.MyAirport.EF
         public int? PAX { get; set; }
         public string? DES { get; set; }
         public ICollection<Bagage>? Bagages { get; set; }
+
+        public Vol () { }
     }
 }
